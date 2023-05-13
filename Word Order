@@ -1,0 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import OrderedDict
+total = int(input())
+words = OrderedDict()
+
+for x in range(total):
+    curr = input()
+    words[curr] = words.get(curr, 0) + 1
+
+print(len(words))
+[print(count, end =" ") for word, count in words.items()]
