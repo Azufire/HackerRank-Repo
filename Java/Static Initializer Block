@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+        static int breadth;
+        static int height;
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        breadth = scan.nextInt();
+        height = scan.nextInt();
+        
+        if(breadth <= 0 || height <= 0) {
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+        }
+        else {
+            System.out.printf("%d\n", breadth * height);
+        }
+        
+        scan.close();
+    }
+}
