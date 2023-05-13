@@ -1,0 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy
+
+size = [int(x) for x in input().split()]
+
+A = []
+for N in range(size[0]):
+    A.append([int(x) for x in input().split()])
+
+mins = numpy.min(A, axis=1)
+print(numpy.max(mins))
