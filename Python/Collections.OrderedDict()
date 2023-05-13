@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import OrderedDict
+
+total = int(input())
+orders = OrderedDict()
+
+for x in range(total):
+    item = input().rsplit(' ', 1)
+    if item[0] in orders.keys():
+        currPrice = orders[item[0]]
+    else:
+        currPrice = 0
+    orders[item[0]] = currPrice + int(item[1])
+    
+[print(name, price) for name, price in orders.items()]
