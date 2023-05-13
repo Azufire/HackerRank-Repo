@@ -1,0 +1,7 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import namedtuple
+
+total = int(input())
+Student = namedtuple('Student', input())
+result = sum([int((Student(*input().split())).MARKS) for student in range(total)])/total
+print(result)
