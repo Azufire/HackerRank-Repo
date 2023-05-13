@@ -1,0 +1,8 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+word = input()
+
+lowers = sorted([l for l in word if l.islower()])
+uppers = sorted([l for l in word if l.isupper()])
+nums = sorted([int(l) for l in word if l.isdigit()], key=lambda i: (1 - (i & 1), i))
+nums = [str(x) for x in nums]
+print(''.join(lowers)+ ''.join(uppers) + ''.join(nums))
