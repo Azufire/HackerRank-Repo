@@ -1,0 +1,37 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import deque
+
+cases = int(input())
+
+for case in range(cases):
+    count = int(input())
+    cubes = deque(map(int, input().split()))
+    
+    #catch edge cases (0-2 cubes, exit early)
+    if (len(cubes) <= 2):
+        print('Yes')
+        continue
+    
+    base = max(cubes[0],cubes[-1])
+    
+    for cube in range(count):
+        left, right = cubes[0], cubes[-1]
+        #prioritize largest outer cube
+        if(left >= right):
+            #test if left is stackable
+            if base >= left:
+                base = cubes.popleft()
+            else:
+                break
+
+        #test if right is stackable
+        else:
+            if base >= right:
+                base = cubes.pop()
+            else:
+                break
+
+    if(len(cubes) == 0):
+        print('Yes')
+    else:
+        print('No')
