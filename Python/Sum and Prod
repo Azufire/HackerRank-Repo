@@ -1,0 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy
+
+size = input().split()
+A = []
+for N in range(int(size[0])):
+    A.append([int(x) for x in input().split()])
+
+sumlist = numpy.sum(A, axis=0)
+
+print(numpy.prod(sumlist))
