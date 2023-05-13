@@ -1,0 +1,19 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import deque
+
+n = int(input())
+d = deque()
+
+for x in range(n):
+    command = input().split()
+    method = command[0]
+    if(method == 'append'):
+        d.append(command[1])
+    elif(method == 'appendleft'):      
+        d.appendleft(command[1])
+    elif(method == 'pop'):
+        d.pop()
+    elif(method == 'popleft'):
+        d.popleft()
+    
+[print(item, end=' ') for item in d]
