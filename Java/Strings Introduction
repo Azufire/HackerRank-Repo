@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        String A1, B1;
+        Scanner scan = new Scanner(System.in);
+        String A = scan.nextLine();
+        String B = scan.nextLine();
+        scan.close();
+        
+        //1 Sum of lengths
+        System.out.println(A.length() + B.length());
+        
+        //2 Compare if A is lexicographically greater than B
+        if(A.compareTo(B) > 0) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");            
+        }
+        
+        //3 capitalize first letters
+        A1 = A.substring(0, 1).toUpperCase() + A.substring(1);
+        B1 = B.substring(0, 1).toUpperCase() + B.substring(1);
+        System.out.printf("%s %s\n",A1, B1);
+
+    }
+}
