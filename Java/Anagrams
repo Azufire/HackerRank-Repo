@@ -1,0 +1,52 @@
+import java.io.*;
+import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        String A = scan.next().toLowerCase();
+        String B = scan.next().toLowerCase();
+        Character curr;
+        Integer count;
+        boolean isAnagram = true;
+        Map<Character, Integer> map = new HashMap<>();
+        
+        //count chars in string A
+        for(int i=0; i < A.length(); i++) {
+            curr = A.charAt(i);
+            count = map.containsKey(curr) ? map.get(curr) : 0;
+            map.put(curr, count+1);
+        }
+        
+        //parse B; if anything not matching, set flag and exit
+        for(int i=0; i< B.length(); i++) {
+            curr = B.charAt(i);
+            count = map.containsKey(curr) ? map.get(curr) : 0;
+            if (count <= 0) {
+                isAnagram = false;
+                break;
+            }
+            map.put(curr, count-1);
+        }
+        
+        //check that all map values are zero
+        for (Integer val : map.values())  {
+            if (val != 0) {
+                isAnagram = false;
+            }
+        }
+        
+        //check flag and print result
+        if(isAnagram) {
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+        
+    
+    }
+}
