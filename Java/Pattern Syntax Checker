@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int cases = scan.nextInt();
+        String line;
+        Pattern test;
+        
+        //remove nl character
+        scan.nextLine();
+        
+        //test each line
+        for(int i = 0; i < cases; i++) {
+            line = scan.nextLine();
+            try {
+                test = Pattern.compile(line);
+                System.out.println("Valid");
+            } catch (PatternSyntaxException e) {
+                System.out.println("Invalid");
+            }
+
+        }
+        scan.close();
+    }
+}
