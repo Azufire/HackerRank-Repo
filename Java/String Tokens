@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        String[] result;
+        List<String> parsedResult = new ArrayList<>();
+        scan.close();
+        
+        //split string following regex
+        result = s.split("[ !,?._'@]+");
+        
+        //parse results to remove empty strings and extra whitespace
+        for(String res: result){
+            if(!res.equals("")) {
+                parsedResult.add(res.strip());
+            }
+        }
+        
+        //print out results
+        System.out.println(parsedResult.size());
+        for(String pRes: parsedResult){
+            System.out.println(pRes);
+        }
+    }
+}
