@@ -1,0 +1,28 @@
+#find lengths
+SET @minlength = (SELECT MIN(CHAR_LENGTH(CITY)) FROM STATION);
+SET @maxlength = (SELECT MAX(CHAR_LENGTH(CITY)) FROM STATION);
+
+SELECT
+    city,
+    CHAR_LENGTH(city)
+FROM
+    STATION
+WHERE
+    #select shortest city
+    city = (
+    SELECT 
+        CITY
+        FROM STATION
+        WHERE CHAR_LENGTH(city) = @minlength
+        ORDER BY city ASC
+        LIMIT 1
+    )
+    #select longest city
+    OR city = (
+    SELECT 
+        CITY
+        FROM STATION
+        WHERE CHAR_LENGTH(city) = @maxlength
+        ORDER BY city ASC
+        LIMIT 1
+    )    
