@@ -1,0 +1,16 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    alist = list(arr)
+    alist.sort(reverse=True)
+    first = alist[0];
+    found = False
+    
+    for x in alist:
+        if x < first:
+            found = True
+            print(x)
+            break
+    
+    if(not found):
+        print(first)
