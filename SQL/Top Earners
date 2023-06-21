@@ -1,0 +1,10 @@
+SELECT 
+    (salary * months) as wage,
+    count(*) 
+FROM
+    EMPLOYEE 
+GROUP BY 
+    1 
+ORDER BY 
+    wage DESC 
+    LIMIT 1;
