@@ -1,0 +1,13 @@
+SELECT DISTINCT A.N,
+CASE
+    /* if no parent, then is root*/
+    WHEN A.P IS NULL THEN 'Root'
+    /* if no child, then is leaf*/
+    WHEN B.N IS NULL THEN 'Leaf'
+    ELSE 'Inner'
+END AS NodeType
+FROM BST A
+/*left join B to represent child nodes: if null, then no child*/
+LEFT JOIN BST B ON A.N = B.P
+ORDER BY A.N
+;
