@@ -1,0 +1,17 @@
+SET @rowindex := -1;
+
+WITH temp AS (
+    SELECT
+        @rowindex := @rowindex + 1 as rowindex, LAT_N
+    FROM
+        STATION
+    ORDER BY
+    LAT_N
+)
+
+SELECT
+    ROUND(AVG(temp.LAT_N),4) AS median
+FROM
+    temp
+WHERE
+    temp.rowindex IN (FLOOR(@rowindex / 2), CEIL(@rowindex / 2));
