@@ -1,0 +1,17 @@
+if __name__ == '__main__':
+    scorelist = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        scorelist.append((name, score))
+    scorelist.sort(key = lambda x: (x[1], x[0]))
+        
+    lowest = scorelist[0][1]
+    second = -1
+    
+    for scoreset in scorelist:
+        #ensure duplicate lowest scores are skipped
+        if (second == -1 and scoreset[1] != lowest):
+            second = scoreset[1]
+        if(scoreset[1] == second):
+            print(scoreset[0])
