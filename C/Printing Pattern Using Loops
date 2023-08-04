@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+
+    int n;
+    scanf("%d", &n);
+  	// Complete the code to print the pattern.
+    //variable to track closest side
+    int min;
+    int side = n + n - 1;
+    for(int a = 0; a < side; a++) {
+        for(int b = 0; b < n + (n-1); b++){
+            //determine closest side
+            min = a < b ? a : b;
+            //if over halfway then use max value (right/bottom edges)
+            min = min < side - a ? min : side - a - 1; 
+            min = min < side - b - 1 ? min : side - b - 1;
+ 
+            printf("%d ", n - min);
+        }
+        printf("\n");
+    }
+    return 0;
+}
