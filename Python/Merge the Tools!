@@ -1,0 +1,18 @@
+def merge_the_tools(string, k):
+    #split into substrings of length k
+    strlist = [string[i:i+k] for i in range(0, len(string), k)]
+    
+    for substr in strlist:
+        #create dict to track unique chars
+        strdict = {}
+        for char in substr:
+            #when not in dict, print char and add to dict
+            if(strdict.get(char) == None):
+                strdict[char] = 1
+                print(char, end="")
+        print()
+        
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
