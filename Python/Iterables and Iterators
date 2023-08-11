@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import itertools
+
+n = int(input())
+letters = input().split(" ")
+k = int(input())
+
+#generate list of possible combinations
+combos = list(itertools.combinations(letters, k))
+
+#count number of combinations with 'a'
+hasA =  len([x for x in combos if 'a' in x])
+
+#divide by total combinations, round to 3 places
+print (round(hasA/len(combos), 3))
