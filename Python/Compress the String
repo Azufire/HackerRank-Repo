@@ -1,0 +1,6 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import itertools
+
+
+S = list(input())
+[print((len(list(y)), int(x)), end=" ") for x, y in itertools.groupby(S)]
