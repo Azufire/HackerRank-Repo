@@ -1,0 +1,25 @@
+from re import match
+
+# NOOO NOT THE MINIONS
+def minion_game(string):
+    vscore = 0
+    cscore = 0
+
+    for i in range(len(string)):
+        #if vowel, add count to vscore, else add to cscore
+        if match(r'[AEIOU]', string[i]):
+            vscore += len(string) - i
+        else:
+            cscore += len(string) - i
+    
+    #print higher count
+    if cscore > vscore:
+        print("Stuart " + str(cscore))
+    elif vscore > cscore:
+        print("Kevin " + str(vscore))
+    else:
+        print("Draw")
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
