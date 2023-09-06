@@ -1,0 +1,32 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n, q, k, temp, i, j;
+    cin >> n >> q;
+
+    vector<int> arrlist[n];
+    
+    
+    for(int i = 0; i < n; i++){
+        cin >> k;
+        vector <int> arr;
+        for(int x = 0; x < k; x++){
+            cin >> temp;
+            arr.push_back(temp);
+        }
+        arrlist[i] = arr;
+    }
+    
+    for(int qry = 0; qry < q; qry++) {
+        cin >> i >> j;
+        cout << arrlist[i].at(j) << "\n";
+    }
+    return 0;
+}
