@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+            //why is this called Java Dequeue if the data type is called a deque?
+            Scanner in = new Scanner(System.in);
+            Deque<Integer> deque = new ArrayDeque<>();
+
+            int n = in.nextInt();
+            int m = in.nextInt();
+            
+            HashSet<Integer> hs = new HashSet<>();
+            int max = -1; 
+            int curr = -1;
+            
+            for (int i = 0; i < n; i++) {
+                int num = in.nextInt();
+               
+               deque.add(num);
+               hs.add(num);
+               
+               if(deque.size() == m) {
+                   if(hs.size() > max) {
+                       max = hs.size();
+                   }
+                    curr = deque.remove();
+                    if(!deque.contains(curr)) {
+                        hs.remove(curr);
+                    }
+                   
+               }
+            }
+            System.out.println(max);
+    }
+}
