@@ -1,0 +1,23 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n, num;
+    vector<int> v;
+    cin >> n;
+    for(int x = 0; x < n; x++) {
+        cin >> num;
+        v.push_back(num);
+    }
+    sort(v.begin(), v.end());
+    for(auto n : v) {
+        cout << n << " ";
+    }
+    return 0;
+}
