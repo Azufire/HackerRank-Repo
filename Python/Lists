@@ -1,0 +1,28 @@
+if __name__ == '__main__':
+    arr = []
+    N = int(input())
+    for i in range(N):
+        x = input().split()
+        command = x[0]
+        x[1:] = [int(a) for a in x[1:]]
+
+        if command == "insert":
+            arr.insert(x[1], x[2])
+        
+        elif command == "append":
+            arr.append(x[1])
+            
+        elif command == "print":
+            print(arr)
+    
+        elif command == "remove":
+            arr.remove(x[1])
+            
+        elif command == "sort":
+            arr.sort()
+            
+        elif command == "pop":
+            arr.pop()
+            
+        else:
+            arr.reverse()
